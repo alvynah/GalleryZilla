@@ -76,5 +76,21 @@ class PictureTestClass(TestCase):
         self.food.save_category()
         self.new_picture=Picture(title='Falls',description='A waterfall',location=self.kenya,category=self.food)
         self.new_picture.save()
+    def tearDown(self):
+        Picture.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+
     def test_picture_instance(self):
         self.assertTrue(isinstance(self.new_picture,Picture))
+
+    def test_save_picture(self):
+        self.new_picture.save_image()
+        images=Picture.objects.all()
+        self.assertTrue(len(images)>0)
+    def test_delete_picture(self):
+        self.new_picture.delete_image()
+        images=Picture.objects.all()
+        self.assertTrue(len(images)==0)
+ 
+        
