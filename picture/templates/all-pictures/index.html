@@ -1,0 +1,16 @@
+{%extends 'base.html'%} {%block content %}{{block.super}}
+<h1 class="text-center">Welcome to GalleryZilla</h1>
+<div class="container">
+    {%for picture in pictures%}
+    <div class="card">
+        <div class="card-img">
+            <img src="{{picture.image.url}}">
+        </div>
+        <div class="card-body">
+            <h1> {{picture.title}} </h1>
+            <p>{{picture.description}}</p>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
