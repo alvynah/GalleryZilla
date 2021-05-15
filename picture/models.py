@@ -9,6 +9,14 @@ class Location (models.Model):
     def delete_location(self):
         self.save_location()
         self.delete()
+    def get_all(self):
+        self.save_location()
+        locations=Location.objects.all()
+        return locations
+    @classmethod
+    def update_location(cls, id,location):
+        location1=cls.objects.filter(id=id).update(location=location)
+        return location1 
 
     def __str__(self):
         return self.location

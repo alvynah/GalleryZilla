@@ -20,3 +20,12 @@ class LocationTestClass(TestCase):
         locations=Location.objects.all()
         self.assertTrue(len(locations)==0)
 
+    def test_get_all(self):
+        self.kenya.get_all()
+        locations=Location.objects.all()
+        self.assertTrue(len(locations)==1)
+    def test_update_location(self):
+        self.kenya.save_location()
+        self.kenya.update_location(self.kenya.id,'Iceland')
+        iceland=Location.objects.get(location='Iceland')
+        self.assertEqual(iceland.location,'Iceland')
