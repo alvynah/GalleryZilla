@@ -98,6 +98,9 @@ class PictureTestClass(TestCase):
         self.new_picture.update_image(self.new_picture.id,image='media/test.png')
         image_new=Picture.objects.get(image='media/test.png')
         self.assertEqual(image_new.image,'media/test.png')
-        
+    def test_getimageby_id(self):
+        self.new_picture.save_image()
+        image_found=self.new_picture.get_image_by_id(self.new_picture.id)
+        self.assertTrue(len(image_found)>0)
  
         

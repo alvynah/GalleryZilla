@@ -51,10 +51,17 @@ class Picture(models.Model):
     def delete_image(self):
         self.save_image()
         self.delete()
+        
     @classmethod
     def update_image(cls,id,image):
         image1=cls.objects.filter(id=id).update(image=image)
         return image1
+
+    @classmethod
+    def get_image_by_id(cls,id):
+        image1=cls.objects.filter(id=id).all()
+        return image1
+    
 
 
 
