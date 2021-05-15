@@ -39,11 +39,11 @@ class Category(models.Model):
         return self.category
 
 class Picture(models.Model):
+    image=models.ImageField(upload_to='pictures/')
     title =models.CharField(max_length = 100)
     description= models.TextField()
     posted_at=models.DateTimeField(auto_now_add=True)
-    location=models.ForeignKey('Location',on_delete=models.CASCADE)
-    category=models.ForeignKey('Category',on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.title
