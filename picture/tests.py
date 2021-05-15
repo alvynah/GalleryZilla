@@ -92,5 +92,12 @@ class PictureTestClass(TestCase):
         self.new_picture.delete_image()
         images=Picture.objects.all()
         self.assertTrue(len(images)==0)
+
+    def test_update_image(self):
+        self.new_picture.save_image()
+        self.new_picture.update_image(self.new_picture.id,image='media/test.png')
+        image_new=Picture.objects.get(image='media/test.png')
+        self.assertEqual(image_new.image,'media/test.png')
+        
  
         
