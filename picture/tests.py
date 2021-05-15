@@ -15,4 +15,8 @@ class LocationTestClass(TestCase):
         self.kenya.save_location()
         locations=Location.objects.all()
         self.assertTrue(len(locations)>0)
+    def test_delete_method(self):
+        self.kenya.delete_location()
+        locations=Location.objects.all()
+        self.assertTrue(len(locations)==0)
 
