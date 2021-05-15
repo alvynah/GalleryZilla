@@ -107,3 +107,7 @@ class PictureTestClass(TestCase):
         self.new_picture.save_image()
         found_images = self.new_picture.filter_by_location(location='Kenya')
         self.assertTrue(len(found_images) == 1)
+    def test_search_image(self):
+        self.new_picture.save_image()
+        searched_image=self.new_picture.search_by_category(search_term='food')
+        self.assertTrue(len(searched_image)==1)
