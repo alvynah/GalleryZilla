@@ -68,3 +68,13 @@ class CategoryTestClass(TestCase):
         fashion=Category.objects.get(category='Fashion')
         self.assertEqual(fashion.category,'Fashion')
 
+class PictureTestClass(TestCase):
+    def setUp(self):
+        self.kenya=Location(location='Kenya')
+        self.kenya.save_location()
+        self.food=Category(category='Food')
+        self.food.save_category()
+        self.new_picture=Picture(title='Falls',description='A waterfall',location=self.kenya,category=self.food)
+        self.new_picture.save()
+    def test_picture_instance(self):
+        self.assertTrue(isinstance(self.new_picture,Picture))
