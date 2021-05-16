@@ -31,8 +31,23 @@ img {
 .modal-full {
     min-width: 80%;
     margin: 10%;
+    margin-top: 4% !important;
 }
 
 .modal-full .modal-content {
     min-height: 30vh;
+}
+
+.img-fluid {
+    width: 450px !important;
+    height: 400px !important;
+}
+
+.modal-footer input {
+    width: 60% !important;
+    height: 20px !important;
+}
+
+.modal-footer {
+    height: 32px;
 }

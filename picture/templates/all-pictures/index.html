@@ -23,14 +23,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{picture.image.url}}" alt="{{picture.title}}" class="img-fluid">
+                    <p class="text-center"> <img src="{{picture.image.url}}" alt="{{picture.title}}" class="img-fluid"></p>
                     <p class="imgdesc text-center">{{picture.description}}</p>
-                    <p>{{picture.category}}</p>
-                    <p>{{picture.location}}</p>
+                    <span>Category :: {{picture.category}}</span>
+                    <span>Location :: {{picture.location}}</span>
+                    <span style="float:right;">Posted :: {{picture.posted_at}}</span>
                 </div>
                 <div class="modal-footer">
-                    <p>{{picture.posted_at}}</p>
+                    <input class="form-control" type="text" value="{{picture.image.url}}" id="{{picture.id}}.url" readonly>
+                    <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
                 </div>
+
             </div>
         </div>
     </div>
