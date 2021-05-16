@@ -27,3 +27,12 @@ img {
 .card {
     margin-bottom: 5%;
 }
+
+.modal-full {
+    min-width: 80%;
+    margin: 10%;
+}
+
+.modal-full .modal-content {
+    min-height: 30vh;
+}
