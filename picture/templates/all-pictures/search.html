@@ -13,10 +13,44 @@
     <div class="row">
 
         {% if pictures %} {% for picture in pictures %}
-        <div class="col-sm-6 col-md-3">
-            <h1>{{picture.title}}</h1>
-        </div>
-        {% endfor %} {% endif %}
+        < class="card" style="width: 26rem;" data-toggle="modal" data-target="#{{picture.id}}">
+            <div class="card-header">
+                <div class="card-image">
+                    <img src="{{picture.image.url}}">
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p class="card-title"> {{picture.title}} </p>
+            </div>
+
+            </>
+            <div class="modal fade " id="{{picture.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-full" role="document">
+                    <div class="modal-content modalcard">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageheader">{{picture.title}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center"> <img src="{{picture.image.url}}" alt="{{picture.title}}" class="img-fluid"></p>
+                            <p class="imgdesc text-center">{{picture.description}}</p>
+                            <span>Category :: {{picture.category}}</span>
+                            <span>Location :: {{picture.location}}</span>
+                            <span style="float:right;">Posted :: {{picture.posted_at}}</span>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="form-control" type="text" value="http://127.0.0.1:8000{{picture.image.url}}" id="pic_url" readonly>
+                            <button class="btn btn-success btn-sm copy" id=url{picture.id} onclick="copyFunction()"><i
+                            class="fas fa-copy" style="font-size:12px;"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% endif %}
     </div>
 </div>
 {% endblock %}
