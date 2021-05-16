@@ -1,30 +1,30 @@
 {%extends 'base.html'%} {% block content %}
-<div class="container">
+<div class="container-fluid">
 
-    <div class="row">
+    <div>
         {% if pictures%}
-        <h2 class="text-center">Found {{ pictures|length }} of searched term {{message}}</h2>
-        {% else %}
+        <h2 class="text-center">Found {{ pictures|length }} pictures of {{message}} <i class="fas fa-arrow-down" style="margin-top:3%;font-size:25px;"></i></h2>
+        <hr> {% else %}
         <h2> Found 0 pictures for the search term {{message}}</h2>
-        {% endif %}
+        <hr> {% endif %}
 
     </div>
 
     <div class="row">
-
-        {% if pictures %} {% for picture in pictures %}
-        < class="card" style="width: 26rem;" data-toggle="modal" data-target="#{{picture.id}}">
-            <div class="card-header">
-                <div class="card-image">
-                    <img src="{{picture.image.url}}">
+        <div class="myCardsSearch">
+            {% if pictures %} {% for picture in pictures %}
+            <div class="card" style="width: 26rem;" data-toggle="modal" data-target="#{{picture.id}}">
+                <div class="card-header">
+                    <div class="card-image">
+                        <img src="{{picture.image.url}}">
+                    </div>
                 </div>
-            </div>
 
-            <div class="card-body">
-                <p class="card-title"> {{picture.title}} </p>
-            </div>
+                <div class="card-body">
+                    <p class="card-title"> {{picture.title}} </p>
+                </div>
 
-            </>
+            </div>
             <div class="modal fade " id="{{picture.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-full" role="document">
                     <div class="modal-content modalcard">
@@ -37,20 +37,22 @@
                         <div class="modal-body">
                             <p class="text-center"> <img src="{{picture.image.url}}" alt="{{picture.title}}" class="img-fluid"></p>
                             <p class="imgdesc text-center">{{picture.description}}</p>
-                            <span>Category :: {{picture.category}}</span>
-                            <span>Location :: {{picture.location}}</span>
-                            <span style="float:right;">Posted :: {{picture.posted_at}}</span>
+                            <span class="modalBody">Category:</span> <span class="category"> {{picture.category}}</span>
+                            <span class="modalBody">Location:</span> <span> {{picture.location}}</span>
+                            <span style="float:right;"><span class="modalBody">Posted:</span><span> {{picture.posted_at}}</span></span>
                         </div>
-                        <div class="modal-footer">
-                            <input class="form-control" type="text" value="http://127.0.0.1:8000{{picture.image.url}}" id="pic_url" readonly>
-                            <button class="btn btn-success btn-sm copy" id=url{picture.id} onclick="copyFunction()"><i
-                            class="fas fa-copy" style="font-size:12px;"></i></button>
+                        <div class="modal-footer justify-content-start">
+                            <label class="modalBody">Copy share link</label>
+                            <input class="form-control " type="text " value="http://127.0.0.1:8000{{picture.image.url}} " id="pic_url " readonly>
+                            <button class="btn btn-success btn-sm copy " id=url{picture.id} onclick="copyFunction() "><i class="fas fa-copy "
+                                    style="font-size:12px; "></i></button>
                         </div>
 
                     </div>
                 </div>
             </div>
             {% endfor %} {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}
