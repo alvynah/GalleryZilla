@@ -72,8 +72,10 @@ class Picture(models.Model):
         searched_images=cls.objects.filter(category__category__icontains=search_term)
         return searched_images
 
-
+    
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering=['title']
 
