@@ -1,1 +1,1 @@
-web: gunicorn GalleryZilla.wsgi --log-file -
+web: gunicorn cocoh-gallery.wsgi --log-file -
