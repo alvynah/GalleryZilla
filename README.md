@@ -109,6 +109,6 @@ This is a Django web application. It is a photo gallery  where a user can view d
 ## Contact Information
 For any further inquiries or contributions or comments, reach me at [Alvynah](juvatalvynah@gmail.com)
 ### License
-[MIT License](https://github.com/alvynah/blogomatic/blob/master/License)
+[MIT License](https://github.com/alvynah/GalleryZilla/blob/main/LICENSE)
 
 Copyright (c) 2021 **Alvynah Wabwoba**
