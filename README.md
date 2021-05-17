@@ -20,6 +20,7 @@ This is a Django web application. It is a photo gallery  where a user can view d
 3. Search by category(nature) 
 
     ![image](./picture/static/images/search_by_category.png)
+    
     ![image](./picture/static/images/emptysearch.png)
 
 4. View by Location (Kenya)
@@ -33,7 +34,7 @@ This is a Django web application. It is a photo gallery  where a user can view d
 
 
 ## Live Link
-[GalleryZilla
+[GalleryZilla](https://galleryzilla.herokuapp.com/)
 ## User Story
 
 1. View different photos that interest them
